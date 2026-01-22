@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     // Done typing, pause before highlight
                     phase = 'pausing';
-                    setTimeout(runAnimation, 2000);
+                    setTimeout(runAnimation, 400);
                 }
                 break;
 
