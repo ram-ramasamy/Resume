@@ -203,6 +203,7 @@ nav .container {
 
 .hero-title span {
     color: var(--text-primary);
+    -webkit-text-fill-color: var(--text-primary);
     border-bottom: 2px solid var(--text-accent-secondary);
     transition: all 0.3s ease;
     position: relative;
