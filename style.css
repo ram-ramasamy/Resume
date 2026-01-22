@@ -244,6 +244,22 @@ nav .container {
     z-index: -1;
 }
 
+/* Mouse cursor for selection effect */
+.select-cursor {
+    display: none;
+    font-size: 1.2rem;
+    position: absolute;
+    transform: translate(-50%, 20%);
+    pointer-events: none;
+    z-index: 10;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: none;
+}
+
+.select-cursor.visible {
+    display: inline-block;
+}
+
 .hero-description {
     font-size: 1.2rem;
     color: var(--text-secondary);
