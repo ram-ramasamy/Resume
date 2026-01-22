@@ -519,6 +519,11 @@ section {
     flex-shrink: 0;
 }
 
+.role-achievements li strong {
+    white-space: nowrap;
+    color: var(--text-accent);
+}
+
 /* Innovation Section */
 .innovation-grid {
     display: grid;
