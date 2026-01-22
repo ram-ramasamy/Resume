@@ -208,16 +208,12 @@ nav .container {
     transition: all 0.3s ease;
     position: relative;
     display: inline-block;
+    padding: 0 4px;
 }
 
-.hero-title span .char {
-    display: inline;
-    transition: background 0.1s ease;
-}
-
-.hero-title span .char.highlighted {
-    background: linear-gradient(135deg, rgba(0, 242, 255, 0.4), rgba(112, 0, 255, 0.4));
-    border-radius: 2px;
+.hero-title span.highlight {
+    background: linear-gradient(135deg, rgba(0, 242, 255, 0.35), rgba(112, 0, 255, 0.35));
+    border-radius: 4px;
 }
 
 .hero-description {
