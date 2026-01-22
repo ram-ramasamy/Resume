@@ -212,6 +212,26 @@ nav .container {
     --highlight-progress: 0%;
 }
 
+.hero-title span::after {
+    content: '|';
+    color: var(--text-accent);
+    font-weight: 300;
+    animation: cursorBlink 0.8s ease infinite;
+    margin-left: 2px;
+}
+
+@keyframes cursorBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
 .hero-title span.highlight::before {
     content: '';
     position: absolute;
