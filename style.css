@@ -1,5 +1,5 @@
 :root {
-    /* Color Palette - Cyberpunk / Tech Dark Mode */
+    /* Color Palette - Executive / Professional Dark Mode */
     --bg-primary: #050505;
     --bg-secondary: #0F1115;
     --bg-card: #16181D;
@@ -13,6 +13,7 @@
 
     --gradient-title: linear-gradient(135deg, #00f2ff 0%, #7000ff 100%);
     --gradient-glass: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    --gradient-gold: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
 
     --shadow-neon: 0 0 10px rgba(0, 242, 255, 0.3), 0 0 20px rgba(112, 0, 255, 0.2);
     --border-dim: 1px solid rgba(255, 255, 255, 0.08);
@@ -183,6 +184,8 @@ nav .container {
     color: var(--text-accent);
     margin-bottom: 1rem;
     display: block;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
 }
 
 .hero h1 {
@@ -211,10 +214,11 @@ nav .container {
 }
 
 .hero-description {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--text-secondary);
-    max-width: 600px;
+    max-width: 700px;
     margin-bottom: 3rem;
+    line-height: 1.8;
 }
 
 .btn {
@@ -267,6 +271,10 @@ section {
     font-size: 1.1rem;
 }
 
+.about-text strong {
+    color: var(--text-accent);
+}
+
 .tech-stack {
     display: flex;
     flex-wrap: wrap;
@@ -306,20 +314,26 @@ section {
     display: block;
 }
 
-.class-list li {
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem;
+.contact-info-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-info-mini .info-item {
     display: flex;
     align-items: center;
+    gap: 1rem;
+    color: var(--text-secondary);
 }
 
-.class-list li::before {
-    content: '▹';
-    color: var(--text-accent-secondary);
-    margin-right: 0.8rem;
+.contact-info-mini .info-item i {
+    color: var(--text-accent);
+    width: 20px;
+    text-align: center;
 }
 
-/* Skills Section */
+/* Skills/Competencies Section */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -380,80 +394,7 @@ section {
     z-index: 10;
 }
 
-
-/* Experience & Leadership */
-.timeline {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background: var(--bg-card);
-}
-
-.timeline-item {
-    position: relative;
-    padding-left: 3rem;
-    margin-bottom: 3rem;
-}
-
-.timeline-dot {
-    position: absolute;
-    left: -5px;
-    top: 0;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--text-accent);
-    box-shadow: 0 0 10px var(--text-accent);
-}
-
-.timeline-date {
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    color: var(--text-accent-secondary);
-    margin-bottom: 0.5rem;
-    display: block;
-}
-
-.timeline-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.timeline-role {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    font-weight: 500;
-}
-
-.highlight-box {
-    background: rgba(112, 0, 255, 0.05);
-    border-left: 3px solid var(--text-accent-secondary);
-    padding: 1rem;
-    margin-top: 1rem;
-    border-radius: 0 5px 5px 0;
-}
-
-.highlight-box ul {
-    padding-left: 1rem;
-}
-
-.highlight-box li {
-    list-style: disc;
-    color: var(--text-secondary);
-    margin-bottom: 0.3rem;
-}
-
-/* Featured Achievement Sections */
+/* Experience Section */
 .featured-achievement {
     padding: 5rem 0;
     position: relative;
@@ -475,288 +416,166 @@ section {
     pointer-events: none;
 }
 
-.achievement-hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+.experience-company {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.achievement-hero.reverse {
-    direction: rtl;
-}
-
-.achievement-hero.reverse>* {
-    direction: ltr;
-}
-
-.achievement-hero-content {
-    position: relative;
-    z-index: 1;
-}
-
-.achievement-category {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--text-accent);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    display: block;
-    margin-bottom: 1rem;
-}
-
-.achievement-hero-content h2 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    background: var(--gradient-title);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.achievement-subtitle {
-    font-size: 1.3rem;
-    color: var(--text-accent-secondary);
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-}
-
-.achievement-description {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 2rem;
-}
-
-.achievement-description strong {
-    color: var(--text-accent);
-}
-
-.achievement-highlights {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.highlight-item {
+.company-header {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 0.8rem 1rem;
-    background: rgba(255, 255, 255, 0.02);
-    border-left: 3px solid var(--text-accent);
-    border-radius: 0 8px 8px 0;
-    transition: all 0.3s ease;
-}
-
-.highlight-item:hover {
-    background: rgba(0, 242, 255, 0.05);
-    transform: translateX(5px);
-}
-
-.highlight-item i {
-    color: var(--text-accent);
-    font-size: 1.2rem;
-    width: 24px;
-    text-align: center;
-}
-
-.highlight-item span {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-.achievement-hero-image {
-    width: 100%;
-    height: 400px;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: var(--bg-card);
     border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: var(--border-dim);
 }
 
-.achievement-hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.hero-image-placeholder {
-    width: 100%;
-    height: 100%;
+.company-logo {
+    width: 70px;
+    height: 70px;
+    background: var(--gradient-title);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(0, 242, 255, 0.1), rgba(112, 0, 255, 0.1));
 }
 
-.hero-image-placeholder i {
-    font-size: 5rem;
+.company-logo i {
+    font-size: 2rem;
+    color: #000;
+}
+
+.company-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.company-tenure {
     color: var(--text-accent);
-    opacity: 0.5;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
 }
 
-@media (max-width: 900px) {
-    .achievement-hero {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .achievement-hero.reverse {
-        direction: ltr;
-    }
-
-    .achievement-hero-content h2 {
-        font-size: 2.2rem;
-    }
-
-    .achievement-hero-image {
-        height: 300px;
-    }
-}
-
-/* Awards Section */
-.awards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.award-card {
+.role-card {
     background: var(--bg-card);
-    border-radius: 16px;
-    overflow: hidden;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
     border: var(--border-dim);
     transition: all 0.3s ease;
 }
 
-.award-card.featured {
-    border-color: rgba(0, 242, 255, 0.3);
-}
-
-.award-card:hover {
-    transform: translateY(-5px);
+.role-card.featured {
     border-color: var(--text-accent);
     box-shadow: var(--shadow-neon);
 }
 
-.award-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    background: var(--bg-secondary);
+.role-card:hover {
+    transform: translateX(5px);
 }
 
-.award-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+.role-header {
+    margin-bottom: 1.5rem;
 }
 
-.award-card:hover .award-image img {
-    transform: scale(1.05);
+.role-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: #000;
+    background: var(--gradient-title);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
 }
 
-.image-placeholder {
-    width: 100%;
-    height: 100%;
+.role-header h4 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+}
+
+.role-achievements {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.role-achievements li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.role-achievements li i {
+    color: var(--text-accent);
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+/* Innovation Section */
+.innovation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2rem;
+}
+
+.innovation-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 2rem;
+    border: var(--border-dim);
+    transition: all 0.3s ease;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.innovation-card:hover {
+    border-color: var(--text-accent);
+    transform: translateY(-5px);
+}
+
+.innovation-card.highlight {
+    border-color: #ffd700;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(255, 140, 0, 0.05));
+    grid-column: 1 / -1;
+}
+
+.innovation-value {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(0, 242, 255, 0.1), rgba(112, 0, 255, 0.1));
-    color: var(--text-secondary);
-    gap: 0.5rem;
+    min-width: 120px;
+    padding: 1rem;
+    background: var(--gradient-gold);
+    border-radius: 12px;
+    flex-shrink: 0;
 }
 
-.image-placeholder i {
-    font-size: 3rem;
-    color: var(--text-accent);
+.value-amount {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #000;
 }
 
-.image-placeholder span {
-    font-size: 0.9rem;
-}
-
-.award-content {
-    padding: 1.5rem;
-}
-
-.award-badge {
-    font-family: var(--font-mono);
+.value-label {
     font-size: 0.75rem;
-    color: var(--text-accent);
-    background: rgba(0, 242, 255, 0.1);
-    padding: 0.3rem 0.8rem;
-    border-radius: 50px;
-    display: inline-block;
-    margin-bottom: 0.8rem;
+    color: rgba(0, 0, 0, 0.7);
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-align: center;
 }
 
-.award-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.award-subtitle {
-    color: var(--text-accent-secondary);
-    font-weight: 600;
-    margin-bottom: 0.8rem;
-}
-
-.award-content p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-.award-list {
-    margin-top: 1rem;
-}
-
-.award-list li {
-    color: var(--text-secondary);
-    margin-bottom: 0.4rem;
-    padding-left: 1.2rem;
-    position: relative;
-}
-
-.award-list li::before {
-    content: '▹';
-    position: absolute;
-    left: 0;
-    color: var(--text-accent);
-}
-
-/* Secondary Awards */
-.awards-secondary {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-
-.award-mini {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: var(--bg-card);
-    padding: 1.5rem;
-    border-radius: 12px;
-    border: var(--border-dim);
-    transition: all 0.3s ease;
-}
-
-.award-mini:hover {
-    border-color: var(--text-accent);
-    transform: translateX(5px);
-}
-
-.award-mini-icon {
-    width: 50px;
-    height: 50px;
+.innovation-icon {
+    width: 60px;
+    height: 60px;
     background: linear-gradient(135deg, rgba(0, 242, 255, 0.1), rgba(112, 0, 255, 0.1));
     border-radius: 12px;
     display: flex;
@@ -765,19 +584,86 @@ section {
     flex-shrink: 0;
 }
 
-.award-mini-icon i {
-    font-size: 1.3rem;
+.innovation-icon i {
+    font-size: 1.5rem;
     color: var(--text-accent);
 }
 
-.award-mini-content h4 {
-    font-size: 1rem;
-    margin-bottom: 0.3rem;
+.innovation-content {
+    flex: 1;
 }
 
-.award-mini-content p {
-    font-size: 0.85rem;
+.innovation-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-accent);
+    background: rgba(0, 242, 255, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.innovation-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+}
+
+.innovation-content p {
     color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Stats Section */
+#highlights {
+    padding: 4rem 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border: var(--border-dim);
+    transition: all 0.3s ease;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.stat-card.animate {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.stat-card:hover {
+    border-color: var(--text-accent);
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    background: var(--gradient-title);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* Contact */
@@ -801,70 +687,164 @@ section {
 }
 
 .social-link {
-    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
     color: var(--text-secondary);
+    transition: all 0.3s ease;
 }
 
 .social-link:hover {
+    border-color: var(--text-accent);
     color: var(--text-accent);
+    box-shadow: var(--shadow-neon);
     transform: translateY(-3px);
 }
 
+/* Footer */
 footer {
+    padding: 3rem 0;
     text-align: center;
-    padding: 2rem 0;
+    border-top: var(--border-dim);
+}
+
+footer p {
     color: var(--text-secondary);
     font-size: 0.9rem;
-    border-top: var(--border-dim);
-    background: var(--bg-secondary);
 }
 
-/* Animations */
-@keyframes glow {
-    0% {
-        box-shadow: 0 0 5px rgba(0, 242, 255, 0.2);
-    }
-
-    50% {
-        box-shadow: 0 0 20px rgba(0, 242, 255, 0.6);
-    }
-
-    100% {
-        box-shadow: 0 0 5px rgba(0, 242, 255, 0.2);
-    }
+/* Timeline Date */
+.timeline-date {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text-accent-secondary);
+    margin-bottom: 0.5rem;
+    display: block;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Animation Classes */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
     .hero h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .hero-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .btn-outline {
+        margin-left: 0;
     }
 
     .about-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
-    .timeline::before {
-        left: -10px;
+    h2 {
+        font-size: 2rem;
     }
 
-    .timeline-item {
-        padding-left: 1.5rem;
+    .skills-grid {
+        grid-template-columns: 1fr;
     }
 
-    .timeline-dot {
-        left: -14px;
+    .innovation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .innovation-card.highlight {
+        flex-direction: column;
+    }
+
+    .innovation-card {
+        flex-direction: column;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .company-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    section {
+        padding: 4rem 0;
     }
 }
 
-/* Animations JS classes */
-section.hidden {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-}
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
 
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .social-links {
+        gap: 1rem;
+    }
+
+    .social-link {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
 }

@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Typing Text Effect with Highlight Delete
     const textElement = document.querySelector('.typing-text');
-    const words = ["Student.", "Developer.", "Homelab Enthusiast.", "Leader.", "Problem Solver."];
+    const words = ["R&D Leader.", "Innovator.", "Strategic Visioner.", "Engineering Expert.", "Regulatory Specialist."];
     let wordIndex = 0;
     let charIndex = 0;
     let phase = 'typing'; // 'typing', 'pausing', 'highlighting', 'deleting'
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     // Done typing, pause before highlight
                     phase = 'pausing';
-                    setTimeout(runAnimation, 500);
+                    setTimeout(runAnimation, 2000);
                 }
                 break;
 
@@ -76,6 +76,19 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('section').forEach(section => {
         section.classList.add('hidden');
         observer.observe(section);
+    });
+
+    // Animate stats on scroll
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-card').forEach(card => {
+        statsObserver.observe(card);
     });
 
 });
