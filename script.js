@@ -2,21 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Typing Text Effect with Letter-by-Letter Highlight
     const textElement = document.querySelector('.typing-text');
-    const cursorElement = document.getElementById('selectCursor');
     const words = ["R&D Leader.", "Innovator.", "Strategic Visioner.", "Engineering Expert.", "Regulatory Specialist."];
     let wordIndex = 0;
     let charIndex = 0;
     let highlightProgress = 0;
     let phase = 'typing'; // 'typing', 'pausing', 'highlighting', 'clearing'
-
-    function updateCursorPosition(percent) {
-        if (!cursorElement || !textElement) return;
-        const rect = textElement.getBoundingClientRect();
-        const parentRect = textElement.parentElement.getBoundingClientRect();
-        const xPos = rect.left - parentRect.left + (rect.width * percent / 100);
-        cursorElement.style.left = xPos + 'px';
-        cursorElement.style.top = (rect.top - parentRect.top + rect.height / 2) + 'px';
-    }
 
     function runAnimation() {
         const currentWord = words[wordIndex];
@@ -37,12 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
 
             case 'pausing':
-                // Start highlighting - show cursor
+                // Start highlighting
                 textElement.classList.add('highlight');
-                if (cursorElement) {
-                    cursorElement.classList.add('visible');
-                    updateCursorPosition(0);
-                }
                 phase = 'highlighting';
                 runAnimation();
                 break;
@@ -54,24 +40,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (lettersHighlighted < totalLetters) {
                     const percent = ((lettersHighlighted + 1) / totalLetters) * 100;
                     textElement.style.setProperty('--highlight-progress', percent + '%');
-                    updateCursorPosition(percent);
                     highlightProgress++;
                     setTimeout(runAnimation, 40);
                 } else {
                     // Ensure we hit exactly 100%
                     textElement.style.setProperty('--highlight-progress', '100%');
-                    updateCursorPosition(100);
                     phase = 'clearing';
                     setTimeout(runAnimation, 200);
                 }
                 break;
 
             case 'clearing':
-                // Clear and start next word - hide cursor
+                // Clear and start next word
                 textElement.classList.remove('highlight');
-                if (cursorElement) {
-                    cursorElement.classList.remove('visible');
-                }
                 textElement.textContent = '';
                 textElement.style.setProperty('--highlight-progress', '0%');
                 charIndex = 0;
