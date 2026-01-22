@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Typing Text Effect with Highlight Delete
+    // Typing Text Effect with Letter-by-Letter Highlight Delete
     const textElement = document.querySelector('.typing-text');
     const words = ["R&D Leader.", "Innovator.", "Strategic Visioner.", "Engineering Expert.", "Regulatory Specialist."];
     let wordIndex = 0;
     let charIndex = 0;
-    let phase = 'typing'; // 'typing', 'pausing', 'highlighting', 'deleting'
+    let highlightIndex = 0;
+    let phase = 'typing'; // 'typing', 'pausing', 'highlighting', 'clearing'
 
     function runAnimation() {
         const currentWord = words[wordIndex];
@@ -13,28 +14,46 @@ document.addEventListener('DOMContentLoaded', () => {
         switch (phase) {
             case 'typing':
                 if (charIndex < currentWord.length) {
-                    textElement.textContent = currentWord.substring(0, charIndex + 1);
+                    // Build text with spans for each character
+                    let html = '';
+                    for (let i = 0; i <= charIndex; i++) {
+                        html += `<span class="char">${currentWord[i]}</span>`;
+                    }
+                    textElement.innerHTML = html;
                     charIndex++;
                     setTimeout(runAnimation, 80);
                 } else {
                     // Done typing, pause before highlight
                     phase = 'pausing';
+                    highlightIndex = 0;
                     setTimeout(runAnimation, 400);
                 }
                 break;
 
             case 'pausing':
-                // Add highlight
-                textElement.classList.add('highlight');
+                // Start highlighting letter by letter
                 phase = 'highlighting';
-                setTimeout(runAnimation, 400);
+                runAnimation();
                 break;
 
             case 'highlighting':
-                // Remove highlight and clear text
-                textElement.classList.remove('highlight');
-                textElement.textContent = '';
+                const chars = textElement.querySelectorAll('.char');
+                if (highlightIndex < chars.length) {
+                    chars[highlightIndex].classList.add('highlighted');
+                    highlightIndex++;
+                    setTimeout(runAnimation, 40); // Speed of highlight per letter
+                } else {
+                    // Done highlighting, wait then clear
+                    phase = 'clearing';
+                    setTimeout(runAnimation, 200);
+                }
+                break;
+
+            case 'clearing':
+                // Clear and start next word
+                textElement.innerHTML = '';
                 charIndex = 0;
+                highlightIndex = 0;
                 wordIndex = (wordIndex + 1) % words.length;
                 phase = 'typing';
                 setTimeout(runAnimation, 300);
