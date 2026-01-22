@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Typing Text Effect with Letter-by-Letter Highlight
+    // Typing Text Effect with Highlight Cursor
+    const containerElement = document.querySelector('.typing-container');
     const textElement = document.querySelector('.typing-text');
     const words = ["R&D Leader.", "Innovator.", "Strategic Visioner.", "Engineering Expert.", "Regulatory Specialist."];
     let wordIndex = 0;
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'typing':
                 if (charIndex < currentWord.length) {
                     textElement.textContent = currentWord.substring(0, charIndex + 1);
-                    textElement.style.setProperty('--highlight-progress', '0%');
+                    containerElement.style.setProperty('--highlight-progress', '0%');
                     charIndex++;
                     setTimeout(runAnimation, 80);
                 } else {
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'pausing':
                 // Start highlighting
                 textElement.classList.add('highlight');
+                containerElement.classList.add('show-cursor');
                 phase = 'highlighting';
                 runAnimation();
                 break;
@@ -39,12 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (lettersHighlighted < totalLetters) {
                     const percent = ((lettersHighlighted + 1) / totalLetters) * 100;
-                    textElement.style.setProperty('--highlight-progress', percent + '%');
+                    containerElement.style.setProperty('--highlight-progress', percent + '%');
                     highlightProgress++;
                     setTimeout(runAnimation, 40);
                 } else {
                     // Ensure we hit exactly 100%
-                    textElement.style.setProperty('--highlight-progress', '100%');
+                    containerElement.style.setProperty('--highlight-progress', '100%');
                     phase = 'clearing';
                     setTimeout(runAnimation, 200);
                 }
@@ -53,8 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'clearing':
                 // Clear and start next word
                 textElement.classList.remove('highlight');
+                containerElement.classList.remove('show-cursor');
                 textElement.textContent = '';
-                textElement.style.setProperty('--highlight-progress', '0%');
+                containerElement.style.setProperty('--highlight-progress', '0%');
                 charIndex = 0;
                 highlightProgress = 0;
                 wordIndex = (wordIndex + 1) % words.length;
