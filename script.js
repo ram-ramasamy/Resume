@@ -34,12 +34,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
 
             case 'highlighting':
-                if (highlightProgress <= 100) {
-                    textElement.style.setProperty('--highlight-progress', highlightProgress + '%');
-                    highlightProgress += (100 / currentWord.length); // Progress per letter
+                const totalLetters = currentWord.length;
+                const lettersHighlighted = Math.floor(highlightProgress);
+
+                if (lettersHighlighted < totalLetters) {
+                    const percent = ((lettersHighlighted + 1) / totalLetters) * 100;
+                    textElement.style.setProperty('--highlight-progress', percent + '%');
+                    highlightProgress++;
                     setTimeout(runAnimation, 40);
                 } else {
-                    // Done highlighting
+                    // Ensure we hit exactly 100%
+                    textElement.style.setProperty('--highlight-progress', '100%');
                     phase = 'clearing';
                     setTimeout(runAnimation, 200);
                 }
