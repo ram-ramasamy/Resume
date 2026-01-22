@@ -205,12 +205,35 @@ nav .container {
     color: var(--text-primary);
     border-bottom: 2px solid var(--text-accent-secondary);
     transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
 }
 
-.hero-title span.highlight {
+.hero-title span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
     background: linear-gradient(135deg, rgba(0, 242, 255, 0.3), rgba(112, 0, 255, 0.3));
     border-radius: 4px;
-    padding: 0 4px;
+    z-index: -1;
+    transition: none;
+}
+
+.hero-title span.highlight::before {
+    animation: highlightSweep 0.4s ease forwards;
+}
+
+@keyframes highlightSweep {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
 }
 
 .hero-description {
