@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Add highlight
                 textElement.classList.add('highlight');
                 phase = 'highlighting';
-                setTimeout(runAnimation, 500);
+                setTimeout(runAnimation, 400);
                 break;
 
             case 'highlighting':
