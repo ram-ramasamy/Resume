@@ -72,6 +72,16 @@ document.addEventListener('DOMContentLoaded', () => {
         runAnimation();
     }
 
+    // Stop cursor blinking while mouse is moving
+    let mouseIdleTimer;
+    document.addEventListener('mousemove', () => {
+        document.body.classList.add('mouse-active');
+        clearTimeout(mouseIdleTimer);
+        mouseIdleTimer = setTimeout(() => {
+            document.body.classList.remove('mouse-active');
+        }, 500);
+    });
+
 
     // Smooth Scroll for Anchors
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

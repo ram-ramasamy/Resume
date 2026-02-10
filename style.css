@@ -239,6 +239,11 @@ nav .container {
     }
 }
 
+.mouse-active .typing-text::after {
+    animation: none;
+    opacity: 1;
+}
+
 .typing-text.highlight::before {
     content: '';
     position: absolute;
