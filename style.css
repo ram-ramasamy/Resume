@@ -591,7 +591,6 @@ section {
 }
 
 .role-achievements li strong {
-    white-space: nowrap;
     color: var(--text-accent);
 }
 
